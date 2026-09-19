@@ -6,7 +6,7 @@ COPY backend/package.json backend/package-lock.json ./backend/
 RUN cd backend && npm ci --omit=dev
 COPY app ./app
 COPY backend ./backend
+COPY index.html ./index.html
 USER node
 EXPOSE 8080
 CMD ["node", "backend/server.js"]
-COPY index.html ./index.html
