@@ -99,5 +99,3 @@ const info = await t.sendMail(mail);
   }
 }
 module.exports = { buildMessage, sendEmail };
-
-module.exports = { buildMessage, sendEmail };
