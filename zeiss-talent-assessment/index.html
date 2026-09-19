@@ -942,9 +942,8 @@ main { flex: 1; }
       rapidResponseSeconds: 2.5  // Respuestas más rápidas que esto se consideran "muy rápidas"
     },
     delivery: {
-      // URL del backend (ver /backend). Vacío = modo configuración: no se envía nada.
-      apiEndpoint: '',
-      emailRecipients: ['Candy.paramo@zeiss.com', 'Hugo.guerrero@zess.com'],
+  apiEndpoint: 'https://zeiss-talent-assessment.onrender.com/api/assessments',
+      emailRecipients: ['Candy.paramo@zeiss.com', 'Hugo.guerrero@zeiss.com'],
       whatsappRecipients: ['6633732713', '6643896885'],
       whatsappCountryCode: '52',
       emailSubjectTemplate: 'Evaluación Psicométrica | {candidato} | {puesto} | {id}'
