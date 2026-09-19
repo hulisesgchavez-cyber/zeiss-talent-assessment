@@ -1,0 +1,15 @@
+{
+  "name": "zeiss-talent-assessment",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Plataforma de evaluación psicométrica para Recursos Humanos (prototipo funcional).",
+  "scripts": {
+    "build": "node build.js",
+    "start": "npm --prefix backend start",
+    "test": "node tests/validate-bank.js && node tests/test-scoring.js && npm --prefix backend test",
+    "test:e2e": "node tests/e2e-demo.js && node tests/e2e-candidate.js && node tests/e2e-timeout-mobile.js && node tests/e2e-backend.js"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.55.0"
+  }
+}

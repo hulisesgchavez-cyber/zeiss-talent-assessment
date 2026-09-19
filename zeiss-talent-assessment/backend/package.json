@@ -1,0 +1,22 @@
+{
+  "name": "zeiss-talent-assessment-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Backend de ZEISS Talent Assessment: verificación del scoring, envío del reporte por correo y WhatsApp.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node test/smoke.js"
+  },
+  "engines": {
+    "node": ">=18.18"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.1",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
+    "helmet": "^8.3.0",
+    "nodemailer": "^10.0.10"
+  }
+}
