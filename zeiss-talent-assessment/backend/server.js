@@ -91,7 +91,15 @@ app.get('/files/:token/:name', (req, res) => {
 });
 
 /* Frontend */
-app.use(express.static(config.dirs.app, { index: 'index.html', maxAge: config.production ? '1h' : 0 }));
+/* Frontend: archivos estáticos de app/ + index.html generado en la raíz */
+app.use(express.static(config.dirs.app, {
+  index: false,
+  maxAge: config.production ? '1h' : 0
+}));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'index.html'));
+});
 
 /* Manejo de errores: mensajes claros para validación; genéricos para errores internos. */
 app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
