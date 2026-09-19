@@ -81,8 +81,8 @@ async function sendEmail(s, message) {
       default: return { status: 'not_configured', detail: `Proveedor de correo desconocido: ${cfg.provider}` };
     }
   } catch (err) {
+    console.error('ERROR SMTP:', err);
     return { status: 'error', detail: `Error al enviar el correo: ${err.message}` };
-  }
 }
 
 module.exports = { buildMessage, sendEmail };
