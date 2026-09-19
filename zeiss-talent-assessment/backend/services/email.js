@@ -58,8 +58,21 @@ async function sendEmail(s, message) {
       }
       case 'smtp': {
         if (!cfg.smtp.host || !cfg.smtp.user || !cfg.smtp.pass) return { status: 'not_configured', detail: 'Faltan SMTP_HOST, SMTP_USER o SMTP_PASS.' };
-        const t = nodemailer.createTransport({ host: cfg.smtp.host, port: cfg.smtp.port, secure: cfg.smtp.secure, requireTLS: !cfg.smtp.secure, auth: { user: cfg.smtp.user, pass: cfg.smtp.pass } });
-        const info = await t.sendMail(mail);
+        const t = nodemailer.createTransport({
+  host: cfg.smtp.host,
+  port: cfg.smtp.port,
+  secure: cfg.smtp.secure,
+  requireTLS: !cfg.smtp.secure,
+  connectionTimeout: 15000,
+  greetingTimeout: 15000,
+  socketTimeout: 20000,
+  auth: {
+    user: cfg.smtp.user,
+    pass: cfg.smtp.pass
+  }
+});
+
+const info = await t.sendMail(mail);
         return { status: 'sent', detail: `Enviado a ${cfg.to.length} destinatario(s).`, messageId: info.messageId };
       }
       case 'sendgrid': {
