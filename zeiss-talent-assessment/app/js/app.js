@@ -760,9 +760,9 @@
         pdf: doc ? { filename: pdfName(record), base64: doc.output('datauristring').split(',')[1] } : null
       };
       const ctrl = new AbortController();
-      const to = setTimeout(() => ctrl.abort(), 45000);
+const to = setTimeout(() => ctrl.abort(), 120000);
       const r = await fetch(ep, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload), signal: ctrl.signal });
-      clearTimeout(to);
+     clearTimeout(to);
       const j = await r.json().catch(() => ({}));
       if (!r.ok) throw new Error(j.error || `HTTP ${r.status}`);
       return { mode: 'api', at, email: j.email || { status: 'unknown' }, whatsapp: j.whatsapp || { status: 'unknown' }, verification: j.verification || null };
