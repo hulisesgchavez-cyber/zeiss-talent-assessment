@@ -84,5 +84,6 @@ async function sendEmail(s, message) {
     console.error('ERROR SMTP:', err);
     return { status: 'error', detail: `Error al enviar el correo: ${err.message}` };
 }
+  }
 
 module.exports = { buildMessage, sendEmail };
