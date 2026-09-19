@@ -9,3 +9,4 @@ COPY backend ./backend
 USER node
 EXPOSE 8080
 CMD ["node", "backend/server.js"]
+COPY index.html ./index.html
