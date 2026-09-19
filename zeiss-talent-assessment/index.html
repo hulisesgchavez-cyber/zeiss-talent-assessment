@@ -3457,7 +3457,7 @@ main { flex: 1; }
           <h3 style="margin-top:22px">Niveles descriptivos</h3><div class="form-grid">${d.levels.map((l, i) => field(`${l.label} — desde`, `levels.${i}.min`, { type: 'number' })).join('')}</div>`;
       case 'delivery': return `<h2>Correo y WhatsApp</h2>
           <div class="callout" style="margin-bottom:18px">${icon('shield')}<span>Por seguridad, el navegador nunca contiene llaves ni tokens. El backend envía el correo y el WhatsApp con credenciales en variables de entorno (.env) y es la fuente oficial de destinatarios. Use el bloque generado abajo para configurarlo.</span></div>
-          <div class="form-grid">${field('URL del backend (endpoint de envío)', 'delivery.apiEndpoint', { full: true, hint: 'Ejemplo: https://evaluaciones.midominio.com/api/assessments · Vacío = modo configuración (no se envía nada).' })}
+          <div class="form-grid">${field('URL del backend (endpoint de envío)', 'delivery.apiEndpoint', { full: true, hint: 'Ejemplo: https://zeiss-talent-assessment.onrender.com · Vacío = modo configuración (no se envía nada).' })}
           ${field('Correos destinatarios (uno por línea)', 'delivery.emailRecipients', { type: 'lines' })}${field('WhatsApp destinatarios (10 dígitos, uno por línea)', 'delivery.whatsappRecipients', { type: 'lines' })}
           ${field('Código de país WhatsApp', 'delivery.whatsappCountryCode')}${field('Asunto del correo', 'delivery.emailSubjectTemplate', { hint: 'Variables: {candidato} {puesto} {id}' })}</div>
           <div id="delivery-warn" style="margin-top:14px"></div>
