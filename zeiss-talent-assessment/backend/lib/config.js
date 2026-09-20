@@ -25,7 +25,7 @@ const config = {
     provider: (env.EMAIL_PROVIDER || 'preview').toLowerCase(),
     from: env.EMAIL_FROM || 'ZEISS Talent Assessment <no-reply@localhost>',
     // Se usan exactamente como se configuran (no se corrigen dominios).
-    to: list(env.EMAIL_TO || 'Candy.paramo@zeiss.com,Hugo.guerrero@zeiss.com'),
+    to: list(env.EMAIL_TO || 'candy.paramo@zeiss.com,hugo.guerrero@zeiss.com'),
     subjectTemplate: env.EMAIL_SUBJECT_TEMPLATE || 'Evaluación Psicométrica | {candidato} | {puesto} | {id}',
     apiKey: env.EMAIL_API_KEY || '',
     smtp: { host: env.SMTP_HOST || '', port: +env.SMTP_PORT || 587, secure: bool(env.SMTP_SECURE), user: env.SMTP_USER || '', pass: env.SMTP_PASS || '' }
