@@ -43,7 +43,7 @@ function buildMessage(s, result, verification, { resend = false } = {}) {
 
 async function sendEmail(s, message) {
   const cfg = config.email;
-  const attachments = s.pdf ? [{ filename: s.pdf.filename, content: s.pdf.buffer, contentType: 'application/pdf' }] : [];
+  const attachments = s.pdf ? [{ filename: s.pdf.filename, content: Buffer.from(s.pdf.base64, 'base64'), contentType: 'application/pdf' }] : [];
   const mail = { from: cfg.from, to: cfg.to.join(', '), subject: message.subject, text: message.text, html: message.html, attachments };
   try {
     switch (cfg.provider) {
