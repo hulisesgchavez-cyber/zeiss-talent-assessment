@@ -43,8 +43,7 @@ function buildMessage(s, result, verification, { resend = false } = {}) {
 
 async function sendEmail(s, message) {
   const cfg = config.email;
- const attachments = s.pdf && s.pdf.base64 ? [{ filename: s.pdf.filename, content: Buffer.from(s.pdf.base64, 'base64'), contentType: 'application/pdf' }] : [];
-  const mail = { from: cfg.from, to: cfg.to.join(', '), subject: message.subject, text: message.text, html: message.html, attachments };
+const attachments = s.pdf && s.pdf.base64 ? [{ filename: s.pdf.filename, content: Buffer.from(s.pdf.base64, 'base64'), contentType: 'application/pdf' }] : [];
   try {
     switch (cfg.provider) {
       case 'none': return { status: 'skipped', detail: 'Envío de correo deshabilitado (EMAIL_PROVIDER=none).' };
