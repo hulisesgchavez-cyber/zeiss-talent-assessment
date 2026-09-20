@@ -40,10 +40,10 @@ function buildMessage(s, result, verification, { resend = false } = {}) {
   ].join('\n');
   return { subject, html, text };
 }
-
 async function sendEmail(s, message) {
   const cfg = config.email;
-const attachments = s.pdf && s.pdf.base64 ? [{ filename: s.pdf.filename, content: Buffer.from(s.pdf.base64, 'base64'), contentType: 'application/pdf' }] : [];
+  console.log('DEBUG s.pdf:', JSON.stringify(s.pdf, null, 2));
+  const attachments = s.pdf && s.pdf.base64 ? [{ filename: s.pdf.filename, content: Buffer.from(s.pdf.base64, 'base64'), contentType: 'application/pdf' }] : [];
   try {
     switch (cfg.provider) {
       case 'none': return { status: 'skipped', detail: 'Envío de correo deshabilitado (EMAIL_PROVIDER=none).' };
